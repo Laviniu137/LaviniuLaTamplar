@@ -1,0 +1,5 @@
+/* Backup of .product-media-link height for perfect image card size (360px)
+   To restore, copy this rule into style.css */
+.product-media-link {
+    height: 360px;
+}

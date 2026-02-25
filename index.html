@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Prevent filter panels from flashing open: remove `open` early on DOMContentLoaded.
+        (function(){
+            try {
+                document.addEventListener('DOMContentLoaded', function(){
+                    var ds = document.querySelectorAll('.filters details');
+                    ds.forEach(function(d){ d.removeAttribute('open'); });
+                });
+            } catch(e){}
+        })();
+    </script>
+    <title>LA-Tâmplar · Mobilier Standard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient gradient removed to eliminate dead space above header -->
+
+    <div class="top-bar">
+        <span>📞 +40 756 193 156</span>
+        <span>🚚 Transport gratuit peste 3000 lei</span>
+        <span>⏰ Program L-V: 08:00 – 18:00</span>
+    </div>
+
+    <header class="primary-header">
+        <div class="brand">
+            <img class="brand-mark" src="Imagini/logo.jpg" alt="LA-Tâmplar" width="80" height="80">
+            <div>
+                <p class="brand-label">atelier</p>
+                <p class="brand-name">LA-Tâmplar</p>
+            </div>
+        </div>
+        <nav class="main-nav" aria-label="Navigare principală">
+            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" id="menuToggle">
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-links">
+                <li><a href="#rooms">Mobilier Standard</a></li>
+                <li><a href="#catalog">Colecții</a></li>
+                <li><a href="mobila-la-comanda.html">Mobilă la Comandă</a></li>
+                <li><a href="#catalog">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <form class="header-search-bar" role="search" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 0;">
+                <input type="search" id="header-search" placeholder="Caută produse..." aria-label="Caută produse" style="width: 260px; padding: 0.65rem 1.1rem; border-radius: 2rem; border: 1px solid #e0e0e0; font-size: 1.05rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); outline: none; transition: border 0.2s;">
+                <button type="submit" class="btn solid" style="padding: 0.65rem 1.5rem; border-radius: 2rem; font-weight: 600; background: linear-gradient(90deg, #e9a86d 0%, #c9773d 100%); border: 2px solid #ffd778; color: #fff;">Caută</button>
+            </form>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="shop-hero hero" id="acasa">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="#acasa">Acasă</a>
+                <span aria-hidden="true">›</span>
+                <span>Mobilier Standard</span>
+            </nav>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <h1>Mobila la comandă pentru fiecare cameră din casă.</h1>
+                    <p class="lead">Trimite schițele și primești propuneri personalizate în 48h. Echipele noastre se ocupă de măsurători, transport și montaj.</p>
+                    <p class="lead" style="margin-top: 0.5rem;"><a href="mobila-la-comanda.html" style="text-decoration: underline; color: var(--ink); font-weight: 600;">Mobilă la comandă</a></p>
+                    <div class="hero-actions">
+                        <button class="btn solid" data-whatsapp>Scrie pe WhatsApp</button>
+                        <a class="btn ghost" href="#catalog">Vezi toate piesele</a>
+                    </div>
+                    <p class="important-note">⚠ Mobilierul se vinde doar în formă finală, complet montat. Comercializarea pe componente sau subansamble nu este disponibilă. Asigurăm distribuție în tot județul Arad și în afara județului, la solicitare.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-ribbon" id="rooms">
+            <div class="category-header">
+                <h2>Mobilier Standard</h2>
+                <p>Soluții complete pentru fiecare zonă a casei tale.</p>
+            </div>
+            <div class="category-scroll" role="list">
+                <article class="category-card active" role="listitem" data-category="hol">
+                    <img src="Imagini/Holl%20coperta.png" alt="Mobilier de hol LA-Tâmplar">
+                    <span>Hol</span>
+                </article>
+                <article class="category-card" role="listitem" data-category="living">
+                    <img src="Imagini/Lining%20coperta.png" alt="Mobilier living LA-Tâmplar">
+                    <span>Living</span>
+                </article>
+                <article class="category-card" role="listitem" data-category="dressing">
+                    <img src="Imagini/Dressing%20Coperta.png" alt="Dressing personalizat LA-Tâmplar">
+                    <span>Dressing</span>
+                </article>
+                <article class="category-card" role="listitem" data-category="bucatarie">
+                    <img src="Imagini/Bucatarie%20coperta.png" alt="Mobilier bucătărie LA-Tâmplar">
+                    <span>Bucătărie</span>
+                </article>
+                <article class="category-card" role="listitem" data-category="dormitor">
+                    <img src="Imagini/Dormitor%20coperta.png" alt="Mobilier dormitor LA-Tâmplar">
+                    <span>Dormitor</span>
+                </article>
+                <article class="category-card" role="listitem" data-category="birou">
+                    <img src="Imagini/birou%20coperta.png" alt="Mobilier birou LA-Tâmplar">
+                    <span>Birou</span>
+                </article>
+            </div>
+        </section>
+        </section>
+
+        <!-- Decorative, responsive separator between category ribbon and product catalog -->
+        <div class="section-separator" aria-hidden="false">
+            <span class="sep-label">Colecții</span>
+        </div>
+
+
+        <section class="catalog" id="catalog">
+            <!-- filters removed per request -->
+
+            <div class="catalog-grid">
+                                <article class="product-card" data-category="living" data-price="10500">
+                                    <a class="product-media-link" href="living-nou2.html" aria-label="Deschide pagina Living Modern 2">
+                                        <figure class="product-thumb">
+                                            <img src="Imagini/Living/living1.png" alt="Living Modern 2" style="max-width:95%;max-height:240px;">
+                                        </figure>
+                                    </a>
+                                    <div class="product-info">
+                                        <p class="product-category">Living · Modern</p>
+                                        <p class="product-code">SM-LIV98</p>
+                                        <a class="product-link" href="living-nou2.html"><h3>Living Modern 2</h3></a>
+                                        <p class="product-description">Bibliotecă cu spații deschise și închise, design contemporan.</p>
+                                        <p class="product-price">10.500 lei</p>
+                                        <button class="btn outline" data-whatsapp>Comandă</button>
+                                    </div>
+                                </article>
+                <article class="product-card" data-category="hol" data-price="2500">
+                    <a class="product-media-link" href="hol-set.html" aria-label="Deschide pagina Set Hol Riflat">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Hol dulapuri/hol dulap 1.png" alt="Set Hol Riflat" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Hol · Seturi riflate</p>
+                        <p class="product-code">SM-HOL01</p>
+                        <a class="product-link" href="hol-set.html">
+                            <h3>Set Hol Riflat</h3>
+                        </a>
+                        <p class="product-description">Bancă tapițată, panouri riflate și spațiu ascuns pentru încălțăminte.</p>
+                        <p class="product-price">2.500 lei</p>
+                        <div class="product-swatches" aria-label="Finisaje disponibile">
+                            <span class="swatch" style="--swatch-color: #c8b59e" title="Alb + stejar"></span>
+                            <span class="swatch" style="--swatch-color: #6b4c2a" title="Nuc"></span>
+                            <span class="swatch" style="--swatch-color: #1e1b18" title="Negru mat"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="hol" data-price="3980">
+                    <a class="product-media-link" href="hol-compact.html" aria-label="Deschide pagina Set Hol Compact">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Hol dulapuri/hol2.png" alt="Set Hol Compact" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Hol · Seturi de intrare</p>
+                        <p class="product-code">SM-HOL02</p>
+                        <a class="product-link" href="hol-compact.html"><h3>Set Hol Compact</h3></a>
+                        <p class="product-description">Corp cu pantofar glisant, dulăpior suspendat și oglindă iluminată.</p>
+                        <p class="product-price">3.980 lei</p>
+                        <div class="product-swatches" aria-label="Finisaje disponibile">
+                            <span class="swatch" style="--swatch-color: #d7d3cf" title="Gri cald"></span>
+                            <span class="swatch" style="--swatch-color: #b18657" title="Stejar caramel"></span>
+                            <span class="swatch" style="--swatch-color: #2c2219" title="Antracit"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="hol" data-price="5320">
+                    <a class="product-media-link" href="colt-riflat-modular.html" aria-label="Deschide pagina Colț Riflat Modular">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Hol dulapuri/hol5.png" alt="Colț Riflat Modular" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Hol · Configurații pe colț</p>
+                        <p class="product-code">SM-HOL03</p>
+                        <a class="product-link" href="colt-riflat-modular.html"><h3>Colț Riflat Modular</h3></a>
+                        <p class="product-description">Module pe colț cu panouri riflate, depozitare verticală și cuier ascuns.</p>
+                        <p class="product-price">5.320 lei</p>
+                        <div class="product-swatches" aria-label="Finisaje disponibile">
+                            <span class="swatch" style="--swatch-color: #cbaa7a" title="Stejar natur"></span>
+                            <span class="swatch" style="--swatch-color: #f4f1ed" title="Alb mat"></span>
+                            <span class="swatch swatch-more">+1</span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="living" data-price="9800">
+                    <a class="product-media-link" href="living.html" aria-label="Deschide pagina Bibliotecă modulară">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Living/living3.png" alt="Bibliotecă modulară Living3" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Living · Biblioteci</p>
+                        <p class="product-code">SM-LIV01</p>
+                        <a class="product-link" href="living.html"><h3>Bibliotecă modulară</h3></a>
+                        <p class="product-description">Fronturi push-to-open, module personalizabile și integrare pentru TV.</p>
+                        <p class="product-price">9.800 lei</p>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="bucatarie" data-price="18500">
+                    <a class="product-media-link" href="bucatarie7.html" aria-label="Deschide pagina Bucătărie Urban Loft">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Bucatarie/bucatarie7.png" alt="Bucătărie" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Bucătărie · Urban Loft</p>
+                        <p class="product-code">SM-KIT01</p>
+                        <a class="product-link" href="bucatarie7.html"><h3>Bucătărie Urban Loft</h3></a>
+                        <p class="product-description">Fronturi anti-amprentă, blat compozit și electrocasnice integrate.</p>
+                        <p class="product-price">18.500 lei</p>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="bucatarie" data-price="16500" data-img="Imagini/Bucatarie%20coperta.png">
+                    <a class="product-media-link" href="bucatarie.html" aria-label="Deschide pagina Bucătărie">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Bucatarie coperta.png" alt="Bucătărie Modernă" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Bucătărie · Modern</p>
+                        <p class="product-code">SM-KIT03</p>
+                        <a class="product-link" href="bucatarie.html"><h3>Bucătărie Modernă</h3></a>
+                        <p class="product-description">Fronturi mate, spațiu funcțional și insulă centrală.</p>
+                        <p class="product-price">16.500 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #e9e7e5"></span>
+                            <span class="swatch" style="--swatch-color: #c19a6b"></span>
+                            <span class="swatch" style="--swatch-color: #2f2f2f"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-category="dormitor" data-price="7300">
+                    <a class="product-media-link" href="dormitor.html" aria-label="Deschide pagina Dormitor">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dormitor coperta.png" alt="Dormitor" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dormitor · Seturi complete</p>
+                        <p class="product-code">SM-BED01</p>
+                        <a class="product-link" href="dormitor.html"><h3>Pat cu tăblie capitonată</h3></a>
+                        <p class="product-description">Tăblie înaltă, noptiere integrate și depozitare ascunsă.</p>
+                        <p class="product-price">7.300 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #e4d0c1"></span>
+                            <span class="swatch" style="--swatch-color: #6f5b4b"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="birou" data-price="8900">
+                    <a class="product-media-link" href="birou.html" aria-label="Deschide pagina Birou">
+                        <figure class="product-thumb">
+                            <img src="Imagini/birou coperta.png" alt="Birou" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Birou · Executive</p>
+                        <p class="product-code">SM-OFF01</p>
+                        <a class="product-link" href="birou.html"><h3>Birou executiv</h3></a>
+                        <p class="product-description">Masă masivă din stejar și vitrină pentru dosare, cablare ascunsă.</p>
+                        <p class="product-price">8.900 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #3b2a1e"></span>
+                            <span class="swatch" style="--swatch-color: #d9c4ad"></span>
+                            <span class="swatch swatch-more">+1</span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="hol" data-price="6150">
+                    <a class="product-media-link" href="hol-set.html" aria-label="Deschide pagina Vestiar Family">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Hol dulapuri/hol4.png" alt="Vestiar Family" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Hol · Vestiare de familie</p>
+                        <p class="product-code">SM-HOL04</p>
+                        <a class="product-link" href="hol-set.html"><h3>Vestiar Family</h3></a>
+                        <p class="product-description">Șine duble pentru haine, banchetă capitonată și sertare separate pentru încălțăminte.</p>
+                        <p class="product-price">6.150 lei</p>
+                        <div class="product-swatches" aria-label="Finisaje disponibile">
+                            <span class="swatch" style="--swatch-color: #ede1d0" title="Bej cald"></span>
+                            <span class="swatch" style="--swatch-color: #7a5c44" title="Nuc american"></span>
+                            <span class="swatch" style="--swatch-color: #1f1f1f" title="Negru texturat"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="living" data-price="9800">
+                    <figure class="product-thumb placeholder">
+                        <span>Imagine living</span>
+                    </figure>
+                    <div class="product-info">
+                        <p class="product-category">Living · Biblioteci</p>
+                        <p class="product-code">SM-LIV04</p>
+                        <h3>Bibliotecă modulară</h3>
+                        <p class="product-description">Fronturi push-to-open, module personalizabile și integrare pentru TV.</p>
+                        <p class="product-price">9.800 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #b0a18c"></span>
+                            <span class="swatch" style="--swatch-color: #ebe4da"></span>
+                            <span class="swatch swatch-more">+2</span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="dressing" data-price="10400" data-img-w1000="Imagini/Dulap%202000x800x500.png" data-img-h3303="Imagini/Dulap%20h3303.png">
+                    <a class="product-media-link" href="dressing-linear.html" aria-label="Deschide pagina Dressing Linear 3M">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dulap%202000x800x500.png" alt="Dressing linear cu uși glisante" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dressing · Uși glisante</p>
+                        <p class="product-code">SM-DRE01</p>
+                        <a class="product-link" href="dressing-linear.html">
+                            <h3>Dulap cu 2 uși</h3>
+                        </a>
+                        <p class="product-description">Dulap cu 2 uși și bară de haine · 200 × 80 × 50 cm</p>
+                        <p class="product-price">10.400 lei</p>
+                        <p class="product-extra">Număr de sertare: 3</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #d8d1c4"></span>
+                            <span class="swatch" style="--swatch-color: #b58a5b"></span>
+                            <span class="swatch" style="--swatch-color: #2c2c2c"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="dressing" data-price="11250" data-img-w1000="Imagini/Dulap%20sertar/Dulap%201%20sertar%20w1000.png" data-img-h3303="Imagini/Dulap%20sertar%20h3303.png">
+                    <a class="product-media-link" href="dressing-vitrina.html" aria-label="Deschide pagina Dressing Vitrină">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dulap%20sertar/Dulap%201%20sertar%20w1000.png" alt="Dressing Vitrină cu sertare" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dressing · Vitrine fumurii</p>
+                        <p class="product-code">SM-DRE02</p>
+                        <a class="product-link" href="dressing-vitrina.html">
+                            <h3>Dulap cu 2 uși și 2 sertare</h3>
+                        </a>
+                        <p class="product-description">Dulap cu 2 uși și 2 sertare · 200 × 80 × 50 cm</p>
+                        <p class="product-price">11.250 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #c9c7c3"></span>
+                            <span class="swatch" style="--swatch-color: #6f6b64"></span>
+                            <span class="swatch" style="--swatch-color: #1a1a1a"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="dressing" data-price="9950" data-img="Imagini/Dulap%20sertar/Dulap%203%20sertar%20h3303.png">
+                    <a class="product-media-link" href="dressing-open.html" aria-label="Deschide pagina Dressing Open Frame">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dressing/oglinda1.png" alt="Dressing deschis cu module personalizate" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dressing · Module deschise</p>
+                        <p class="product-code">SM-DRE04</p>
+                        <a class="product-link" href="dressing-open.html"><h3>Dressing Open Frame</h3></a>
+                        <p class="product-description">Cadru metalic, rafturi ajustabile și panouri riflate pentru zona centrală.</p>
+                        <p class="product-price">9.950 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #f4efe8"></span>
+                            <span class="swatch" style="--swatch-color: #b79a7b"></span>
+                            <span class="swatch" style="--swatch-color: #3b3127"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-category="dressing" data-price="9950" data-img="Imagini/Dulap%20sertar/Dulap%203%20sertar%20h3303.png">
+                    <a class="product-media-link" href="dressing-open.html" aria-label="Deschide pagina Dressing Open Frame">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dulap%20sertar/Dulap%203%20sertar%20h3303.png" alt="Dressing deschis cu module personalizate" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dressing · Module deschise</p>
+                        <p class="product-code">SM-DRE05</p>
+                        <a class="product-link" href="dressing-open.html"><h3>Dressing Open Frame</h3></a>
+                        <p class="product-description">Cadru metalic, rafturi ajustabile și panouri riflate pentru zona centrală.</p>
+                        <p class="product-price">9.950 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #f4efe8"></span>
+                            <span class="swatch" style="--swatch-color: #b79a7b"></span>
+                            <span class="swatch" style="--swatch-color: #3b3127"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-category="bucatarie" data-price="18500">
+                    <a class="product-media-link" href="bucatarie.html" aria-label="Deschide pagina Bucătărie">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Bucatarie coperta.png" alt="Bucătărie" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Bucătărie · Urban Loft</p>
+                        <p class="product-code">SM-KIT02</p>
+                        <a class="product-link" href="bucatarie.html"><h3>Bucătărie Urban Loft</h3></a>
+                        <p class="product-description">Fronturi anti-amprentă, blat compozit și electrocasnice integrate.</p>
+                        <p class="product-price">18.500 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #c2c5c8"></span>
+                            <span class="swatch" style="--swatch-color: #4a4d52"></span>
+                            <span class="swatch" style="--swatch-color: #f1e4d0"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="dormitor" data-price="7300">
+                    <a class="product-media-link" href="dormitor.html" aria-label="Deschide pagina Dormitor">
+                        <figure class="product-thumb">
+                            <img src="Imagini/Dormitor coperta.png" alt="Dormitor" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Dormitor · Seturi complete</p>
+                        <p class="product-code">SM-BED01</p>
+                        <a class="product-link" href="dormitor.html"><h3>Pat cu tăblie capitonată</h3></a>
+                        <p class="product-description">Tăblie înaltă, noptiere integrate și depozitare ascunsă.</p>
+                        <p class="product-price">7.300 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #e4d0c1"></span>
+                            <span class="swatch" style="--swatch-color: #6f5b4b"></span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <article class="product-card" data-category="birou" data-price="8900">
+                    <a class="product-media-link" href="birou.html" aria-label="Deschide pagina Birou">
+                        <figure class="product-thumb">
+                            <img src="Imagini/birou coperta.png" alt="Birou" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Birou · Executive</p>
+                        <p class="product-code">SM-OFF03</p>
+                        <a class="product-link" href="birou.html"><h3>Birou executiv</h3></a>
+                        <p class="product-description">Masă masivă din stejar și vitrină pentru dosare, cablare ascunsă.</p>
+                        <p class="product-price">8.900 lei</p>
+                        <div class="product-swatches">
+                            <span class="swatch" style="--swatch-color: #3b2a1e"></span>
+                            <span class="swatch" style="--swatch-color: #d9c4ad"></span>
+                            <span class="swatch swatch-more">+1</span>
+                        </div>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+                <!-- Living Nou card moved here for consistency -->
+                <article class="product-card" data-category="living" data-price="9999">
+                    <a class="product-media-link" href="living-nou.html" aria-label="Deschide pagina Nou Living">
+                        <figure class="product-thumb">
+                            <img src="Imagini/LivingNou.png" alt="Living Nou" style="max-width:95%;max-height:240px;">
+                        </figure>
+                    </a>
+                    <div class="product-info">
+                        <p class="product-category">Living · Nou</p>
+                        <p class="product-code">SM-LIV99</p>
+                        <a class="product-link" href="living-nou.html"><h3>Living Nou</h3></a>
+                        <p class="product-description">Descriere scurtă pentru noul produs.</p>
+                        <p class="product-price">9.999 lei</p>
+                        <button class="btn outline" data-whatsapp>Comandă</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="dimension-reference" aria-labelledby="std-dim-title">
+            <p class="eyebrow">Dimensiuni standard</p>
+            <h2 id="std-dim-title">Configurația Dulap cu 2 uși (referință pentru toate proiectele).</h2>
+            <p class="lead">Folosim aceeași împărțire modulară la proiectele personalizate. Dimensiunile pot fi scalate, dar raportul rămâne unul ergonomic.</p>
+            <table class="dimension-table" aria-label="Dimensiuni standard Dulap cu 2 uși">
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Lățime</th>
+                        <th>Înălțime</th>
+                        <th>Adâncime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modul central</td>
+                        <td>120 cm</td>
+                        <td>260 cm</td>
+                        <td>60 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Modul lateral</td>
+                        <td>90 cm</td>
+                        <td>260 cm</td>
+                        <td>60 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Coloană accesorii</td>
+                        <td>60 cm</td>
+                        <td>260 cm</td>
+                        <td>45 cm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-card">
+                <p class="eyebrow">Contact direct</p>
+                <h2>Spune-ne ce spațiu amenajezi</h2>
+                <p>Trimite schițe, fotografii sau doar o descriere rapidă. Răspundem pe WhatsApp în timpul programului.</p>
+                <ul class="contact-info">
+                    <li><span>Showroom:</span> Str. Atelierului 5, Brașov</li>
+                    <li><span>Email:</span> studio@stiemobila.ro</li>
+                    <li><span>Telefon:</span> +40 712 345 678</li>
+                </ul>
+                <button class="btn solid" data-whatsapp>Deschide conversația</button>
+            </div>
+            <form class="contact-form" aria-label="Formular de contact" method="POST" action="https://formspree.io/f/xqedgldo">
+                <label>
+                    Subiect
+                    <input type="text" name="subject" placeholder="Subiect" required>
+                </label>
+                <label>
+                    Adresă de e-mail
+                    <input type="email" name="email" placeholder="nume@exemplu.ro" required>
+                </label>
+                <label>
+                    Telefon
+                    <input type="tel" name="phone" placeholder="07xx xxx xxx">
+                </label>
+                <label>
+                    Mesaj
+                    <textarea rows="4" name="message" placeholder="Cu ce te putem ajuta?" required></textarea>
+                </label>
+                <input type="hidden" name="_subject" value="Mesaj nou LA-Tâmplar">
+                <button type="submit" class="btn outline">
+                    <span>Trimite</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <button class="whatsapp-fab" aria-label="Deschide WhatsApp" data-whatsapp>
+        <span>WhatsApp</span>
+    </button>
+
+    <footer class="site-footer">
+        <p>© 2026 LA-Tâmplar · atelier independent de mobilier contemporan.</p>
+        <div class="footer-links">
+            <a href="#rooms">Mobilier Standard</a>
+            <a href="#catalog">Produse</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
