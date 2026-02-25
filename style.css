@@ -238,6 +238,56 @@
     /* aspect-ratio removed to avoid conflict */
     border-radius: 1.25rem !important;
     overflow: hidden;
+
+}
+
+/* Mobile: reposition category ribbon images to the left of the label */
+@media (max-width: 640px) {
+    .category-scroll {
+        display: flex;
+        gap: 0.6rem;
+        padding: 0.4rem 0.6rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .category-card {
+        display: flex;
+        flex-direction: column; /* imagine sus, text sub ea */
+        align-items: center;
+        gap: 0.45rem;
+        min-width: 140px;
+        width: 150px;
+        padding: 0.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(33,23,14,0.04);
+        justify-content: center;
+    }
+    .category-card img {
+        width: 100%;
+        height: 88px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex: none;
+        margin-bottom: 0.45rem;
+    }
+    .category-card span {
+        font-size: 0.95rem;
+        line-height: 1.1;
+        font-weight: 600;
+        color: var(--ink, #1f1f1f);
+        white-space: normal; /* permite wrap pe 2 linii dacă e nevoie */
+        text-align: center;
+    }
+    .category-card.active {
+        transform: translateY(0);
+        box-shadow: 0 10px 26px rgba(33,23,14,0.06);
+        border-color: var(--accent);
+    }
+}
+.section-separator + .catalog {
+    margin-top: 3rem;
+}
     background: linear-gradient(135deg, rgba(201, 119, 61, 0.08), rgba(40, 94, 92, 0.08));
     padding: 0 !important;
     display: flex;
@@ -646,18 +696,106 @@ main {
 .category-card {
     min-width: 140px;
     width: 160px;
-    height: 136px;
+    height: 146px;
     border-radius: 12px;
-    padding: 0.6rem;
+    padding: 0.75rem 0.6rem 0.6rem; /* mic ajust sus */
     background: linear-gradient(180deg,#fff,var(--paper));
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center; /* centrează conținutul vertical pe desktop */
     box-shadow: 0 10px 26px rgba(33,23,14,0.04);
     border: 1px solid rgba(0,0,0,0.03);
 }
-.category-card img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; margin-bottom: 0.5rem; }
+.category-card img {
+    width: 100%;
+    height: 88px; /* ușor mai înalt pentru a arăta mai echilibrat */
+    object-fit: cover;
+    object-position: center 35%; /* poziționează vizual conținutul imaginii puțin mai jos */
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+}
+
+/* Etichete (nume categorie) - responsive, aliniate și lizibile pe telefon și PC */
+.category-card span {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+    white-space: normal; /* permite împachetarea pe mai multe linii dacă este nevoie pe desktop */
+    margin-top: 0;
+}
+
+/* Mobile: display label under image for ribbon (column layout) */
+@media (max-width: 640px) {
+    .category-scroll {
+        display: flex;
+        gap: 0.6rem;
+        padding: 0.4rem 0.6rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .category-card {
+        display: flex;
+        flex-direction: column; /* imagine sus, text sub ea */
+        align-items: center;
+        gap: 0.45rem;
+        min-width: 140px;
+        width: 150px;
+        padding: 0.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(33,23,14,0.04);
+        justify-content: center;
+    }
+    .category-card img {
+        width: 100%;
+        height: 88px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex: none;
+        margin-bottom: 0.45rem;
+    }
+    .category-card span {
+        font-size: 0.95rem;
+        line-height: 1.1;
+        font-weight: 600;
+        color: var(--ink, #1f1f1f);
+        white-space: normal; /* permite wrap pe 2 linii dacă e nevoie */
+        text-align: center;
+    }
+    .category-card.active {
+        transform: translateY(0);
+        box-shadow: 0 10px 26px rgba(33,23,14,0.06);
+        border-color: var(--accent);
+    }
+}
+
+/* Titlu secțiune și descriere */
+.category-header h2 {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem;
+    line-height: 1.15;
+    color: var(--ink);
+}
+.category-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+    .category-card span {
+        font-size: 0.92rem; /* ușor mai mic pe ecrane mici */
+        white-space: nowrap; /* păstrăm o linie în ribbon mobil pentru aspect compact */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .category-header h2 { font-size: 1.25rem; }
+    .category-header p { font-size: 0.95rem; }
+}
 
 /* Product grid: responsive columns and centered container */
 .catalog-grid {
@@ -686,7 +824,7 @@ main {
 .product-info h3 { margin: 0.25rem 0 0.45rem; }
 
 @media (max-width: 640px) {
-    .category-card { width: 140px; height: 120px; }
+    .category-card { width: 150px; height: auto; }
     .product-thumb img { height: 140px; }
     .catalog-grid { gap: 1rem; }
 }
