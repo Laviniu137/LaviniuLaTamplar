@@ -285,6 +285,45 @@
         border-color: var(--accent);
     }
 }
+
+/* Ensure gallery and product images display correctly on small screens
+   - large gallery images should scale without being cropped
+   - thumbnails remain visible and horizontally scrollable */
+@media (max-width: 640px) {
+    .product-thumb img,
+    .product-media-link img,
+    .living-mini-gallery .mini-gallery-main img,
+    .living-mini-gallery .product-thumb.living-gallery-thumb img {
+        width: 100%;
+        height: auto;
+        max-height: 60vh; /* keep image visible without excessive cropping */
+        object-fit: contain; /* show full image within container */
+        display: block;
+    }
+
+    .living-mini-gallery .mini-gallery-main {
+        min-height: 0;
+        padding: 0.25rem 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-thumb { text-align: center; }
+
+    /* Make thumbnail row scrollable and ensure thumbs keep aspect */
+    .living-mini-gallery .mini-gallery-thumbs {
+        overflow-x: auto;
+        display: flex;
+        gap: 0.6rem;
+        padding: 0.35rem 0;
+    }
+    .living-mini-gallery .mini-thumb {
+        width: 72px;
+        height: 56px;
+        object-fit: cover;
+        flex: 0 0 auto;
+    }
+}
 .section-separator + .catalog {
     margin-top: 3rem;
 }
@@ -893,6 +932,57 @@ main {
     .section-separator::before { max-width: 92%; height: 28px; background-size: cover; }
     .section-separator .sep-label { padding: 0.35rem 0.8rem; font-size: 0.92rem; transform: translate(-50%, -50%); }
     .section-separator .sep-label::before { width: 18px; height: 18px; }
+}
+
+/* Global gallery rules to ensure responsive, non-cropped images */
+.detail-gallery figure img,
+.product-thumb img,
+.product-media-link img,
+.living-mini-gallery .mini-gallery-main img,
+.living-mini-gallery .product-thumb.living-gallery-thumb img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Thumbnails: keep aspect and small size */
+.living-mini-gallery .mini-thumb {
+    width: 72px;
+    height: 56px;
+    object-fit: cover;
+}
+
+/* Mobile breakpoint: ensure gallery images occupy full width and not exceed container */
+@media (max-width: 768px) {
+    .detail-gallery figure img,
+    .product-thumb img,
+    .product-media-link img,
+    .living-mini-gallery .mini-gallery-main img,
+    .living-mini-gallery .product-thumb.living-gallery-thumb img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    /* Ensure gallery main area adapts to content height */
+    .living-mini-gallery .mini-gallery-main {
+        min-height: 0;
+        padding: 0.25rem 0;
+    }
+
+    /* Make thumbnail row scrollable and visible */
+    .living-mini-gallery .mini-gallery-thumbs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.25rem 0;
+    }
 }
 
 /* Pull the separator slightly over the catalog so it visually overlaps */
@@ -1760,9 +1850,11 @@ main {
 
     .detail-gallery figure img {
         width: 100%;
-        height: 420px;
-        max-height: 60vh;
-        object-fit: cover;
+        max-width: 100%;
+        height: auto; /* don't force fixed height on small screens */
+        max-height: 60vh; /* optional cap so image doesn't overflow viewport */
+        object-fit: contain; /* show entire image */
+        object-position: center;
         border-radius: 1.2rem;
         display: block;
         margin: 0 auto;

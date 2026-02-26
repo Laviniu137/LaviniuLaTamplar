@@ -106,6 +106,39 @@ if (menuToggle && navLinks) {
 			menuToggle.setAttribute('aria-expanded', 'false');
 		});
 	});
+
+	// Close mobile nav when clicking outside or pressing Escape
+	function closeMobileNav() {
+		if (navLinks.classList.contains('open')) {
+			navLinks.classList.remove('open');
+			menuToggle.setAttribute('aria-expanded', 'false');
+		}
+	}
+
+	// Click/touch outside to close
+	document.addEventListener('click', function(e) {
+		if (!navLinks.classList.contains('open')) return;
+		var target = e.target;
+		if (!navLinks.contains(target) && !menuToggle.contains(target)) {
+			closeMobileNav();
+		}
+	}, { passive: true });
+
+	// Also support touchstart for some mobile browsers
+	document.addEventListener('touchstart', function(e) {
+		if (!navLinks.classList.contains('open')) return;
+		var target = e.target;
+		if (!navLinks.contains(target) && !menuToggle.contains(target)) {
+			closeMobileNav();
+		}
+	}, { passive: true });
+
+	// Close on Escape key
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape' || e.key === 'Esc') {
+			closeMobileNav();
+		}
+	});
 }
 
 const contactForms = document.querySelectorAll('.contact-form');
