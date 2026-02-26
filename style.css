@@ -379,6 +379,34 @@
     margin: 0;
     padding: 0;
 }
+/* ---------- Section spacing normalization ---------- */
+/* Ensure ~60px between main catalog and contact sections */
+.catalog {
+    margin-top: 0 !important;
+    margin-bottom: 60px !important; /* ~60px spacing to next section */
+}
+
+/* Contact section should not carry extra top margin */
+#contact,
+.contact {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Override any separator-related top margin which may add extra gap */
+.section-separator + .catalog {
+    margin-top: 0 !important;
+}
+
+/* Safety: cap excessive section gaps — if any section had huge gap, reduce visually */
+section {
+    margin-top: 0 !important;
+    margin-bottom: 60px !important;
+}
+
+/* Scan notes: no explicit 'margin: 100px' or 'padding: 100px' found; no large gap values detected.
+   If you still see large whitespace, send a screenshot and I'll target the exact selector. */
+
 
 body {
     font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -722,9 +750,36 @@ main {
 
 /* Layout polish: category ribbon and product cards */
 .category-ribbon {
-    padding: 0.6rem 1rem 0.4rem;
+    padding: 1.2rem 1rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.category-ribbon .category-header { margin-bottom: 0.6rem; }
+.category-ribbon .category-header {
+    margin-bottom: 0.9rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+.category-ribbon .category-header h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.05;
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+}
+.category-ribbon .category-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+/* Center the ribbon content and keep consistent spacing */
+.category-scroll {
+    justify-content: center;
+    padding: 0.6rem 1rem;
+}
 .category-ribbon .category-scroll {
     display: flex;
     gap: 1.1rem;
@@ -2310,3 +2365,16 @@ main {
 }
 
 /* Prominent side ribbon removed per user request */
+
+/* Contact separator: lift the pill slightly higher above the contact section */
+.section-separator.contact-sep {
+    margin-top: -56px;
+    margin-bottom: 20px;
+    z-index: 6;
+}
+@media (max-width: 860px) {
+    .section-separator.contact-sep {
+        margin-top: -28px;
+        margin-bottom: 12px;
+    }
+}
