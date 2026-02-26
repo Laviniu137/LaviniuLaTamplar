@@ -398,6 +398,7 @@
     margin-top: 0 !important;
 }
 
+
 /* Safety: cap excessive section gaps — if any section had huge gap, reduce visually */
 section {
     margin-top: 0 !important;
