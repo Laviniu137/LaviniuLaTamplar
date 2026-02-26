@@ -1176,6 +1176,45 @@ main {
 /* Section separator removed (user requested) */
 
 
+/* About section: full-width rectangular band */
+.about {
+    display: flex;
+    justify-content: center;
+    padding: 2.4rem 0;
+}
+.about-card {
+    width: min(1200px, 96vw);
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 1.6rem 2.4rem;
+    border-radius: 16px; /* slightly larger rounded ends */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    box-shadow: 0 12px 26px rgba(33,23,14,0.06);
+    border-top: 1px solid rgba(33,23,14,0.03);
+    border-bottom: 1px solid rgba(33,23,14,0.03);
+}
+.about-card .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+.about-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 860px) {
+    .about-card { padding: 0.9rem 0.9rem; border-radius: 12px; }
+    .about-card h2 { font-size: 1.02rem; }
+}
+
+
 /* Filters UI removed */
 
 .filter-group {
